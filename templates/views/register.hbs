@@ -10,40 +10,54 @@
 
 
     <div class="form_container">
-      <form name="form">
+      <form action="/register" method="post" name="reg-form">
         <div class="heading">
           <h2>Registration Form</h2>
         </div>
         <div class="form_wrap fullname">
           <div class="form_item">
             <label>First Name</label>
-            <input type="text">
+            <input type="text" placeholder="First Name" value="" name="first_name">
             <div class="error" id="fname"></div>
           </div>
           <div class="form_item">
             <label>Last Name</label>
-            <input type="text">
+            <input type="text" placeholder="Last Name" value="" name="last_name">
             <div class="error" id="lname"></div>
           </div>
         </div>
         <div class="form_wrap">
           <div class="form_item">
             <label>Email Address</label>
-            <input type="text">
+            <input type="text" placeholder="Email" value="" name="email">
             <div class="error" id="email"></div>
+          </div>
+
+          <div class="form_item">
+            <label>Phone</label>
+            <input type="text" minlength="10" maxlength="10" placeholder="Phone" value="" name="phone">
+            <div class="error" id="phone"></div>
+          </div>
+        </div>
+
+        <div class="form_wrap">
+          <div class="form_item">
+            <label>Password</label>
+            <input type="text" minlength="5" maxlength="10" placeholder="Password" value="" name="password">
+            <div class="error" id="Password"></div>
           </div>
         </div>
         <div class="form_wrap">
           <div class="form_item">
-            <label>Phone</label>
-            <input type="text">
-            <div class="error" id="phone"></div>
+            <label>Confirm Password</label>
+            <input type="text" minlength="5" maxlength="10" placeholder="Confirm Password" value="" name="Confirm_Password">
+            <div class="error" id="Password"></div>
           </div>
         </div>
 
 
         <div class="btn">
-          <input type="submit" value="Get Started">
+          <input type="submit" value="Register">
         </div>
       </form>
     </div>
