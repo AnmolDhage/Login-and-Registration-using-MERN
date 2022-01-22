@@ -33,4 +33,4 @@ const employeeSchema = new mongoose.Schema({
 
 const Register = new mongoose.model("Register", employeeSchema);
 
-module.export = Register;
+module.exports = Register;
