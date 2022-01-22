@@ -5,6 +5,7 @@ const hbs = require("hbs");
 
 require("./db/conn");
 const Register = require("./models/registers")
+const { json } = require("express");
 const port = process.env.PORT || 3000;
 
 // Paths start
@@ -40,11 +41,30 @@ app.get("/login", (req, res) => {
 
 app.post("/register", async (req, res) => {
   try {
-    console.log(req.body.first_name);
-    res.send(req.body.first_name);
+    const password = req.body.password;
+    const cpassword = req.body.Confirm_Password;
+    //storing data in db
+    if (password === cpassword) {
+
+      const person = new Register({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        phone: req.body.phone,
+        password: req.body.password,
+        Confirm_Password: req.body.Confirm_Password
+      })
+      //saving
+      const registered = await person.save();
+      res.status(201).render("index");
+
+    } else {
+      res.send('Password not mathing');
+    }
+
   }
-  catch {
-    response.status(400).send(error);
+  catch (error) {
+    res.status(400).send(error);
   }
 })
 
